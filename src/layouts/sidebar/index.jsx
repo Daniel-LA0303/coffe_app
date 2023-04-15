@@ -59,7 +59,7 @@ const Sidebar = () => {
       }
     : {
         open: {
-          width: "16rem",
+          width: "13rem",
           transition: {
             damping: 40,
           },
@@ -120,7 +120,7 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/authentication"} className="link">
+              <NavLink to={"/products"} className="link">
               <FiCoffee size={23} className="min-w-max" />
                 Products
               </NavLink>

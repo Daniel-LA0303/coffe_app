@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import Home from "./pages/Home";
 import Analytics from "./pages/Analytics";
-import Authentication from "./pages/Authentication";
+import Products from "./pages/Products";
 import Build from "./pages/Build";
 import Settings from "./pages/Settings";
 import Stroage from "./pages/Stroage";
@@ -15,7 +15,7 @@ function App() {
     <RootLayout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/authentication" element={<Authentication />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/stroage" element={<Stroage />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/build/:bID" element={<Build />} />
