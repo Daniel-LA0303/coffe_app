@@ -116,25 +116,25 @@ const Sidebar = () => {
             <li>
               <NavLink to={"/"} className="link">
                 <AiOutlineAppstore size={23} className="min-w-max" />
-                Home
+                <h2>Home</h2>
               </NavLink>
             </li>
             <li>
               <NavLink to={"/products"} className="link">
               <FiCoffee size={23} className="min-w-max" />
-                Products
+                <h2>Products</h2>
               </NavLink>
             </li>
             <li>
               <NavLink to={"/stroage"} className="link">
                 <AiOutlineDollar size={23} className="min-w-max" />
-                Sales
+                <h2>Sales</h2>
               </NavLink>
             </li>
             <li>
               <NavLink to={"/settings"} className="link">
                 <SlSettings size={23} className="min-w-max" />
-                Settings
+                <h2>Settings</h2>
               </NavLink>
             </li>
           </ul>
