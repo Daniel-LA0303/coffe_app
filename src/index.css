@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* -webkit-text-size-adjust: none; */
 
 @layer base {
   html {
@@ -23,6 +24,8 @@
 }
 
 .link {
+  user-select: none;
+  -webkit-user-select: none;
   @apply p-2.5 flex rounded-md gap-6 items-center md:cursor-pointer cursor-default duration-300 font-medium;
 }
 
