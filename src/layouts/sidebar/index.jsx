@@ -24,9 +24,11 @@ import { RiBuilding3Line } from "react-icons/ri";
 import {GrNotification} from 'react-icons/gr'
 import { useMediaQuery } from "react-responsive";
 import { MdMenu } from "react-icons/md";
-import { Link,  useLocation, useRoutes } from "react-router-dom";
+import { NavLink,  useLocation, useRoutes } from "react-router-dom";
 import ContentAside from "../../components/ContentAside/ContentAside";
-
+import useApp from "../../hooks/useApp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell, faCoffee, faDollar, faDollarSign, faGear, faHome, faMoneyBill, faMoneyCheck, faNoteSticky } from "@fortawesome/free-solid-svg-icons";
 
 const style = {
   position: 'absolute' ,
@@ -42,9 +44,15 @@ const style = {
 };
 
 const Sidebar = () => {
+
+  const {
+    openModal,
+    setOpenModal
+} = useApp();
+
   let isTabletMid = useMediaQuery({ query: "(max-width: 760px)" });
   const [open, setOpen] = useState(isTabletMid ? false : true);
-  const [openModal, setOpenModal] = useState(false)
+  
   const sidebarRef = useRef();
   const { pathname } = useLocation();
 
@@ -93,18 +101,6 @@ const Sidebar = () => {
         },
       };
 
-  const subMenusList = [
-    {
-      name: "build",
-      icon: RiBuilding3Line,
-      menus: ["auth", "app settings", "stroage", "hosting"],
-    },
-    {
-      name: "analytics",
-      icon: TbReportAnalytics,
-      menus: ["dashboard", "realtime", "events"],
-    },
-  ];
 
   return (
     <div>
@@ -135,28 +131,28 @@ const Sidebar = () => {
         <div className="flex flex-col  h-full">
           <ul className="whitespace-pre px-2.5 text-[0.9rem] py-5 flex flex-col gap-1  font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100   md:h-[68%] h-[70%]">
             <li>
-              <Link to={"/"} className="link">
-                <AiOutlineAppstore size={23} className="min-w-max" />
-                <h2>Home</h2>
-              </Link>
+              <NavLink to={"/"} className="link" >
+                <FontAwesomeIcon icon={faHome} width={20}/>
+                <p>Home</p>
+              </NavLink>
             </li>
             <li>
-              <Link to={"/products"} className="link">
-              <FiCoffee size={23} className="min-w-max" />
-                <h2>Products</h2>
-              </Link>
+              <NavLink to={"/products"} className="link">
+                <FontAwesomeIcon icon={faCoffee}  width={20}/>
+                <p>Products</p>
+              </NavLink>
             </li>
             <li>
-              <Link to={"/stroage"} className="link">
-                <AiOutlineDollar size={23} className="min-w-max" />
-                <h2>Sales</h2>
-              </Link>
+              <NavLink to={"/stroage"} className="link">
+                <FontAwesomeIcon icon={faMoneyBill} width={20} />
+                <p>Sales</p>
+              </NavLink>
             </li>
             <li>
-              <Link to={"/settings"} className="link">
-                <SlSettings size={23} className="min-w-max" />
-                <h2>Settings</h2>
-              </Link>
+              <NavLink to={"/settings"} className="link">
+                <FontAwesomeIcon icon={faGear} width={20}/>
+                <p>Settings</p>
+              </NavLink>
             </li>
           </ul>
 
@@ -189,27 +185,14 @@ const Sidebar = () => {
         <div className=" text-white" onClick={() => setOpen(true)}>
           <MdMenu size={25} />
         </div>
-        <div onClick={() => setOpenModal(!openModal)}>
-          <GrNotification size={25}/>
+        <div 
+          onClick={() => setOpenModal(!openModal)}
+
+          className="text-white cursor-pointer"
+        >
+          <FontAwesomeIcon icon={faBell}/>
         </div>
       </div>
-      {/* <Dialog 
-        open={openModal}
-        onClose={() => setOpenModal(false)}
-        // maxWidth="sm"
-        // fullWidth
-        // style={{ height: '500px' }}
-        style={{ width: '80%', height: '80%' }}
-      >
-        <DialogTitle>Title</DialogTitle>
-        <DialogContent>
-          <DialogContentText>Hi mon ami </DialogContentText>
-          <DialogActions>
-            <Button onClick={() => setOpenModal(false)}>Cancel</Button>
-            <Button autoFocus>Sumbit</Button>
-          </DialogActions>
-        </DialogContent>
-      </Dialog> */}
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
@@ -222,9 +205,6 @@ const Sidebar = () => {
               aside={false}
             />
           </div>
-          {/* <Button 
-          // onClick={handleClose}
-          >Close Child Modal</Button> */}
         </Box>
       </Modal>
     </div>

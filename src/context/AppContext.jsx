@@ -15,6 +15,8 @@ const AppProvider = ({children}) => {
     const [donuts, setDonuts] = useState([])
     const [biscuits, setBiscuits] = useState([])
 
+    const [openModal, setOpenModal] = useState(false)
+
     // const
 
     useEffect(() => {
@@ -45,7 +47,9 @@ const AppProvider = ({children}) => {
                 cakes,
                 pizzas,
                 donuts,
-                biscuits
+                biscuits,
+                openModal,
+                setOpenModal
             }}
         >
             {children}
