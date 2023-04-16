@@ -15,6 +15,7 @@ import TableProducts from '../Table/TableProducts';
 import { useMediaQuery } from 'react-responsive';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 
 
@@ -47,7 +48,7 @@ const TabsHome = ({TabsInHome}) => {
       setActiveTab(newValue);
     };
   
-
+    
   return (
     <div className="flex flex-col md:flex-row flex-1">
           <aside className=" w-full md:w-24 h-20 md:h-screen  sticky top-0 bg-[#313131] border-l border-[#525252]">
@@ -89,10 +90,10 @@ const TabsHome = ({TabsInHome}) => {
                 <h1 className=" ">{TabsInHome ? 'Products' : 'All Products'}</h1>
                 {!TabsInHome && (
                     <div>
-                        <button className='bg-[#0D7377] text-sm md:text-lg w-full px-5 h-10 rounded-lg hover:bg-[#408b8e] transition duration-300 '>
+                        <Link to='/new-product' className='bg-[#0D7377] py-3 text-sm md:text-lg w-full px-5 h-10 rounded-lg hover:bg-[#408b8e] transition duration-300 '>
                             New Product
                             <FontAwesomeIcon icon={faPlusCircle} className='ml-2' />
-                        </button>
+                        </Link>
                     </div>
                 )}
 
@@ -202,7 +203,7 @@ const TabsHome = ({TabsInHome}) => {
                                     ))}
                                 </>
                             ) : (
-                                <TableProducts data={coffe}/>
+                                <TableProducts data={pizzas}/>
                             )}
                         </div>
                     </div>

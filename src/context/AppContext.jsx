@@ -17,6 +17,8 @@ const AppProvider = ({children}) => {
 
     const [openModal, setOpenModal] = useState(false)
 
+    const [product, setProduct] = useState({})
+
     // const
 
     useEffect(() => {
@@ -36,12 +38,12 @@ const AppProvider = ({children}) => {
         setPizzas(products.filter(producto => producto.categoriaId === "pizzas"));
       }, [products]);
 
-    // console.log(produtcs);
+    // console.log(pizzas);
 
     return(
         <AppContext.Provider
             value={{
-                // produtcs
+                products,
                 coffe,
                 burgers,
                 cakes,
@@ -49,7 +51,9 @@ const AppProvider = ({children}) => {
                 donuts,
                 biscuits,
                 openModal,
-                setOpenModal
+                setOpenModal,
+                product,
+                setProduct
             }}
         >
             {children}

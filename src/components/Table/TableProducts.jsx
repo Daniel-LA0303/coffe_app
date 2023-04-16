@@ -2,8 +2,26 @@ import React from 'react'
 import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper} from '@mui/material'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import useApp from '../../hooks/useApp';
+import { useNavigate } from 'react-router-dom';
 
 const TableProducts = ({data}) => {
+
+  const route = useNavigate();
+
+  const {
+    setProduct
+  } = useApp();
+
+  const handleClick = (id) => {
+    // setProduct()
+    const productFind = data.find((product) => product.id === id);
+    setProduct(productFind)
+    setTimeout(() => {
+      route(`/edit-product/${id}`)
+    }, 500);
+  }
+
 
   return (
     <TableContainer component={Paper} className=' overflow-x-scroll contenedor'>
@@ -46,7 +64,10 @@ const TableProducts = ({data}) => {
                     <button className='border border-red-500 w-7 h-7 rounded-lg mx-0.5 text-red-500 hover:text-white hover:bg-red-500 transition duration-300'>
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
-                    <button className='border border-green-500 w-7 h-7 rounded-lg mx-0.5 text-green-500 hover:text-white hover:bg-green-500 transition duration-300'>
+                    <button 
+                      onClick={() => handleClick(row.id)}
+                      className='border border-green-500 w-7 h-7 rounded-lg mx-0.5 text-green-500 hover:text-white hover:bg-green-500 transition duration-300'
+                    >
                       <FontAwesomeIcon icon={faPen} />
                     </button>
                   </div>

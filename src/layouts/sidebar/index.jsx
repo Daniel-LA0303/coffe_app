@@ -94,7 +94,7 @@ const Sidebar = () => {
           },
         },
         closed: {
-          width: "4rem",
+          width: "3.5rem",
           transition: {
             damping: 40,
           },
@@ -122,7 +122,7 @@ const Sidebar = () => {
         <div className="flex items-center gap-2.5 font-medium border-b py-2 border-slate-300  mx-3">
           <img
             src={Logo}
-            width={40}
+            width={32}
             alt=""
           />
           <span className="text-xl whitespace-pre ml-1">Coffe</span>
@@ -143,7 +143,7 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/stroage"} className="link">
+              <NavLink to={"/sales"} className="link">
                 <FontAwesomeIcon icon={faMoneyBill} width={20} />
                 <p>Sales</p>
               </NavLink>
