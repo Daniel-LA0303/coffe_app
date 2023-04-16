@@ -36,7 +36,7 @@ const TableProducts = ({data}) => {
                 <TableCell sx={{ color: 'white' }}>{row.categoriaId}</TableCell>
                 <TableCell>
                   <img
-                    src={`src/assets/img/${row.imagen}.jpg`}
+                    src={`./img/${row.imagen}.jpg`}
                     width={30}
                     className=""
                   />

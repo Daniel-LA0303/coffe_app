@@ -5,7 +5,7 @@ import React from 'react'
 const CardProductSale = ({product}) => {
     
     const {precio , imagen, nombre} = product
-    const imagePath = `src/assets/img/${imagen}.jpg`;
+    const imagePath = `./img/${imagen}.jpg`;
   return (
         <div className="bg-[#525252] py-5 px-0 lg:px-5 rounded-xl flex flex-col items-center gap-2 my-5 text-center text-gray-300">
 

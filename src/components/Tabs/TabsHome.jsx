@@ -82,10 +82,10 @@ const TabsHome = ({TabsInHome}) => {
             <div className='flex justify-between items-center m-5'>
                 <h1 className=" ">{TabsInHome ? 'Products' : 'All Products'}</h1>
                 <div>
-                <button className='bg-[#0D7377] w-full px-5 h-10 rounded-lg hover:bg-[#408b8e] transition duration-300 '>
-                    New Product
-                    <FontAwesomeIcon icon={faPlusCircle} className='ml-2' />
-                </button>
+                    <button className='bg-[#0D7377] w-full px-5 h-10 rounded-lg hover:bg-[#408b8e] transition duration-300 '>
+                        New Product
+                        <FontAwesomeIcon icon={faPlusCircle} className='ml-2' />
+                    </button>
                 </div>
             </div>
             
