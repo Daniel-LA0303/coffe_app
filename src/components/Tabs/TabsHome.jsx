@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
+import TabScrollButton from '@mui/material/TabScrollButton';
 import CardProduct from '../Cards/CardProduct';
 import useApp from '../../hooks/useApp';
 
@@ -48,34 +49,39 @@ const TabsHome = ({TabsInHome}) => {
   
 
   return (
-    <div className="flex flex-row flex-1">
-          <aside className=" w-24 h-screen  sticky top-0 bg-[#313131] border-l border-[#525252]">
+    <div className="flex flex-col md:flex-row flex-1">
+          <aside className=" w-full md:w-24 h-20 md:h-screen  sticky top-0 bg-[#313131] border-l border-[#525252]">
             <TabContext value={activeTab}>
-              <TabList 
-                TabIndicatorProps={{
-                  style: {
-                    backgroundColor: "#408b8e",
-                   
-                  },
-                }}
-                aria-label="Tabs" 
-                onChange={handleTabChange}
-                orientation="vertical"
-                sx={{
-                  "& .Mui-selected": {
-                    color: "#408b8e",   
-                  }
-                }}
-                textColor="#408b8e"
-                classes={{indicator : "#408b8e"}}
-              >
-                <Tab label='Coffe' value='1' icon={<CoffeIcon />}/> 
-                <Tab label='Donuts' value='2' icon={<DonutIcon />}/> 
-                <Tab label='Biscuits' value='3' icon={<BiscuitIcon />} /> 
-                <Tab label='Burgers' value='4' icon={<BurgerIcon />} /> 
-                <Tab label='Cakes' value='5' icon={<CakeIcon />} /> 
-                <Tab label='Pizzas' value='6' icon={<PizzaIcon />} /> 
-              </TabList>
+                {/* <div className="icon-container"> */}
+                    <TabList 
+                        // className={tabM ? '' : 'horizontal-scroll'}
+                        variant="scrollable"
+                        TabIndicatorProps={{
+                        style: {
+                            backgroundColor: "#408b8e",
+                            display: 'flex'
+                        },
+                        }}
+                        aria-label="Tabs" 
+                        onChange={handleTabChange}
+                        orientation={tabM ? 'horizontal' : 'vertical'}
+                        sx={{
+                            "& .Mui-selected": {
+                                color: "#408b8e",   
+                            },
+                        }}
+                        textColor="#408b8e"
+                        classes={{indicator : "#408b8e"}}
+                    >
+                        <Tab label='Coffe' value='1' icon={<CoffeIcon />}/> 
+                        <Tab label='Donuts' value='2' icon={<DonutIcon />}/> 
+                        <Tab label='Biscuits' value='3' icon={<BiscuitIcon />} /> 
+                        <Tab label='Burgers' value='4' icon={<BurgerIcon />} /> 
+                        <Tab label='Cakes' value='5' icon={<CakeIcon />} /> 
+                        <Tab label='Pizzas' value='6' icon={<PizzaIcon />} /> 
+                    </TabList>
+                {/* </div> */}
+
             </TabContext>
           </aside>
           <div className="w-full ml-auto flex-1 ">
