@@ -10,7 +10,7 @@ const CardProductSale = ({product}) => {
         <div className="bg-[#525252] py-5 px-0 lg:px-5 rounded-xl flex flex-col items-center gap-2 my-5 text-center text-gray-300">
 
             <div className='flex items-center mb-3 justify-between w-full'>
-                <div className='hidden lg:block'>
+                <div className=''>
                     <img
                         src={imagePath}
                         className=" w-20 h-20 mt-0 shadow-2xl rounded-lg"

@@ -3,6 +3,11 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import Logo from "../../assets/icon2.png"
 
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from "@mui/material";
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+// import Button from '@mui/material/Button';
+
 // import
 
 
@@ -19,11 +24,27 @@ import { RiBuilding3Line } from "react-icons/ri";
 import {GrNotification} from 'react-icons/gr'
 import { useMediaQuery } from "react-responsive";
 import { MdMenu } from "react-icons/md";
-import { NavLink, useLocation, useRoutes } from "react-router-dom";
+import { Link,  useLocation, useRoutes } from "react-router-dom";
+import ContentAside from "../../components/ContentAside/ContentAside";
+
+
+const style = {
+  position: 'absolute' ,
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: '#525252',
+  boxShadow: 24,
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
 
 const Sidebar = () => {
   let isTabletMid = useMediaQuery({ query: "(max-width: 760px)" });
   const [open, setOpen] = useState(isTabletMid ? false : true);
+  const [openModal, setOpenModal] = useState(false)
   const sidebarRef = useRef();
   const { pathname } = useLocation();
 
@@ -114,28 +135,28 @@ const Sidebar = () => {
         <div className="flex flex-col  h-full">
           <ul className="whitespace-pre px-2.5 text-[0.9rem] py-5 flex flex-col gap-1  font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100   md:h-[68%] h-[70%]">
             <li>
-              <NavLink to={"/"} className="link">
+              <Link to={"/"} className="link">
                 <AiOutlineAppstore size={23} className="min-w-max" />
                 <h2>Home</h2>
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to={"/products"} className="link">
+              <Link to={"/products"} className="link">
               <FiCoffee size={23} className="min-w-max" />
                 <h2>Products</h2>
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to={"/stroage"} className="link">
+              <Link to={"/stroage"} className="link">
                 <AiOutlineDollar size={23} className="min-w-max" />
                 <h2>Sales</h2>
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to={"/settings"} className="link">
+              <Link to={"/settings"} className="link">
                 <SlSettings size={23} className="min-w-max" />
                 <h2>Settings</h2>
-              </NavLink>
+              </Link>
             </li>
           </ul>
 
@@ -168,10 +189,44 @@ const Sidebar = () => {
         <div className=" text-white" onClick={() => setOpen(true)}>
           <MdMenu size={25} />
         </div>
-        <div>
+        <div onClick={() => setOpenModal(!openModal)}>
           <GrNotification size={25}/>
         </div>
       </div>
+      {/* <Dialog 
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        // maxWidth="sm"
+        // fullWidth
+        // style={{ height: '500px' }}
+        style={{ width: '80%', height: '80%' }}
+      >
+        <DialogTitle>Title</DialogTitle>
+        <DialogContent>
+          <DialogContentText>Hi mon ami </DialogContentText>
+          <DialogActions>
+            <Button onClick={() => setOpenModal(false)}>Cancel</Button>
+            <Button autoFocus>Sumbit</Button>
+          </DialogActions>
+        </DialogContent>
+      </Dialog> */}
+      <Modal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        aria-labelledby="child-modal-title"
+        aria-describedby="child-modal-description"
+      >
+        <Box sx={{ ...style, width: 400, height: '70vh' }}>
+          <div className=" h-4/6">
+            <ContentAside 
+              aside={false}
+            />
+          </div>
+          {/* <Button 
+          // onClick={handleClose}
+          >Close Child Modal</Button> */}
+        </Box>
+      </Modal>
     </div>
   );
 };
