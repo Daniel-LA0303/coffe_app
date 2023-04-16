@@ -29,6 +29,15 @@
   @apply p-2.5 flex rounded-md gap-6 items-center md:cursor-pointer cursor-default duration-300 font-medium;
 }
 
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .link h2 {
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    text-shadow: none;
+  }
+}
+
+
 .active {
   @apply  text-white bg-[#0D7377];
 }
