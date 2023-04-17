@@ -1,5 +1,10 @@
 const Settings = () => {
-  return <h1>Settings</h1>;
+  return (
+    <div className="m-5 text-white">
+      <h1>xd</h1>
+    </div>
+
+  );
 };
 
 export default Settings;

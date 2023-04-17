@@ -28,7 +28,7 @@ import { NavLink,  useLocation, useRoutes } from "react-router-dom";
 import ContentAside from "../../components/ContentAside/ContentAside";
 import useApp from "../../hooks/useApp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faClipboardList, faCoffee, faDollar, faDollarSign, faGear, faHome, faMoneyBill, faMoneyCheck, faNoteSticky } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faClipboardList, faCoffee, faDollar, faDollarSign, faGear, faHome, faMoneyBill, faMoneyCheck, faNoteSticky, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 const style = {
   position: 'absolute' ,
@@ -165,8 +165,21 @@ const Sidebar = () => {
                 <p>Order</p>
               </button>
             </li>
+            <li className=" ">
+              <button 
+                // onClick={() => setOpenModal(!openModal)}
+                className="link">
+                <FontAwesomeIcon icon={faSignInAlt} width={20}/>
+                <p>Log out</p>
+              </button>
+            </li>
           </ul>
 
+        </div>
+        <div>
+        <div className=" ">
+            lol
+          </div>
         </div>
         <motion.div
           onClick={() => {

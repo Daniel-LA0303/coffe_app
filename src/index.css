@@ -7,7 +7,7 @@
 @layer base {
   body {
     background: #525252;
-    background-image: url('./assets/background-md.jpg');
+    background-image: url('./assets/background.webp');
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;
@@ -16,9 +16,9 @@
   }
   @media (max-width: 768px) {
     body {
-      /* background-image: url('./assets/background-sm.jpg');
-      background-size: contain; */
-      /* background-position: center center; */
+      /* background-image: url('./assets/background-sm.jpg'); */
+      /* background-size: contain; */
+      /* background-position: fixed; */
     }
   }
   /* @media (max-width: 768px) {

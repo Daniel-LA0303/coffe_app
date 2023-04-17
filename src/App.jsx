@@ -22,8 +22,6 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/new-product" element={<NewProduct />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
-        <Route path="/build/:bID" element={<Build />} />
-        <Route path="/analytics/:aID" element={<Analytics />} />
       </Routes>
   </RootLayout>
   )

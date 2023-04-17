@@ -50,7 +50,7 @@ const TabsHome = ({TabsInHome}) => {
   
     
   return (
-    <div className="flex flex-col md:flex-row flex-1">
+    <div className="flex flex-col md:flex-row flex-2">
           <aside className=" w-full md:w-24 h-20 md:h-screen  sticky top-0 bg-[#313131] border-l border-[#525252]">
             <TabContext value={activeTab}>
                 {/* <div className="icon-container"> */}
@@ -85,7 +85,7 @@ const TabsHome = ({TabsInHome}) => {
 
             </TabContext>
           </aside>
-          <div className="w-full ml-auto flex-1 ">
+          <div className="w-full ml-auto flex-2 ">
             <div className='flex justify-between items-center m-5'>
                 <h1 className=" ">{TabsInHome ? 'Products' : 'All Products'}</h1>
                 {!TabsInHome && (
@@ -102,7 +102,7 @@ const TabsHome = ({TabsInHome}) => {
             <TabContext value={activeTab}>
                 <TabPanel value="1">
                     <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
-                        <div className={`${TabsInHome ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
+                        <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
                                     {[...coffe].reverse().map(product => (
@@ -120,7 +120,7 @@ const TabsHome = ({TabsInHome}) => {
                 </TabPanel>
                 <TabPanel value="2">
                     <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
-                        <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
+                        <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
                                     {[...donuts].reverse().map(product => (
@@ -138,7 +138,7 @@ const TabsHome = ({TabsInHome}) => {
                 </TabPanel>
                 <TabPanel value="3">
                     <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
-                        <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
+                        <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
                                     {[...biscuits].reverse().map(product => (
@@ -156,7 +156,7 @@ const TabsHome = ({TabsInHome}) => {
                 </TabPanel>
                 <TabPanel value="4">
                     <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
-                        <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
+                        <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
                                     {[...burgers].reverse().map(product => (
@@ -174,7 +174,7 @@ const TabsHome = ({TabsInHome}) => {
                 </TabPanel>
                 <TabPanel value="5">
                     <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
-                        <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
+                        <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
                                     {[...cakes].reverse().map(product => (
@@ -192,7 +192,7 @@ const TabsHome = ({TabsInHome}) => {
                 </TabPanel>              
                 <TabPanel value="6">
                     <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
-                        <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
+                        <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
                                     {[...pizzas].reverse().map(product => (

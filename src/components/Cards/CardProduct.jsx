@@ -29,7 +29,7 @@ const CardProduct = ({product}) => {
             src={imagePath}
             className="w-full block object-cover -mt-20 shadow-2xl rounded-full"
         />
-        <p className="text-xl">{nombre}</p>
+        <p className=" text-xs sm:text-xl">{nombre}</p>
         <span className="text-gray-400">${precio}</span>
         <button 
           onClick={() => handleClick()}
