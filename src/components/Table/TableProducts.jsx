@@ -10,7 +10,8 @@ const TableProducts = ({data}) => {
   const route = useNavigate();
 
   const {
-    setProduct
+    setProduct,
+    deleteProduct
   } = useApp();
 
   const handleClick = (id) => {
@@ -61,7 +62,9 @@ const TableProducts = ({data}) => {
                 </TableCell>
                 <TableCell>
                   <div className='flex justify-between'>
-                    <button className='border border-red-500 w-7 h-7 rounded-lg mx-0.5 text-red-500 hover:text-white hover:bg-red-500 transition duration-300'>
+                    <button 
+                      onClick={() => deleteProduct(row.id)}
+                      className='border border-red-500 w-7 h-7 rounded-lg mx-0.5 text-red-500 hover:text-white hover:bg-red-500 transition duration-300'>
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
                     <button 

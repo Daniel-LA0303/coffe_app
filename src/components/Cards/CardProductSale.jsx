@@ -1,11 +1,50 @@
 import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
+import React, { useState } from 'react'
+import useApp from '../../hooks/useApp';
 
 const CardProductSale = ({product}) => {
     
-    const {precio , imagen, nombre} = product
+    const {precio , imagen, nombre, amount} = product
     const imagePath = `./img/${imagen}.jpg`;
+
+    const {
+        setProductsOrder,
+        productsOrder,
+        deleteProductOrder,
+      } = useApp();
+
+    const handleDecrement = () => {
+        const updatedProducts = productsOrder.map(p => {
+          if (p.id === product.id) {
+            return {
+              ...p,
+              amount: Math.max(0, p.amount - 1) // Asegurarse de que no haya cantidades negativas
+            };
+          }
+          return p;
+        });
+        setProductsOrder(updatedProducts);
+      };
+
+      const handleIncrement = () => {
+        const updatedProducts = productsOrder.map(p => {
+          if (p.id === product.id) {
+            return {
+              ...p,
+              amount: p.amount + 1
+            };
+          }
+          return p;
+        });
+        setProductsOrder(updatedProducts);
+      };
+
+
+        const handleClickDelete = (id) => {
+            deleteProductOrder(id);
+        }
+    
   return (
         <div className="bg-[#525252] py-5 px-0 lg:px-5 rounded-xl flex flex-col items-center gap-2 my-5 text-center text-gray-300">
 
@@ -13,43 +52,28 @@ const CardProductSale = ({product}) => {
                 <div className=''>
                     <img
                         src={imagePath}
-                        className=" w-20 h-20 mt-0 shadow-2xl rounded-lg"
+                        className="  w-20 h-20 lg:w-10 lg:h-10 xl:w-20 xl:h-20 lg:text-xs xl:text-xl mt-0 shadow-2xl rounded-lg"
                     />
                 </div>
-                {/* <div> */}
-                    <p className=" text-sm xl:text-xl w-40">{nombre}</p>
-                    <span className="text-gray-400">${precio}</span>
-                {/* </div> */}
+                    <p className=" lg:text-xs xl:text-xl w-40">{nombre}</p>
+                    <span className=" text-white lg:text-xs xl:text-xl">${precio}</span>
+
 
             </div>
             <div className='w-full flex justify-between'>
-                <div>
-                    <input 
-                        type="text" 
-                        className='bg-[#313131] w-full h-10 rounded-lg mx-0.5 px-2'
-                        placeholder='Note'
-                    />
-                </div>
-                <button className='border border-red-500 w-10 h-10 rounded-lg mx-0.5 text-red-500 hover:text-white hover:bg-red-500 transition duration-300 '>
-                    <FontAwesomeIcon icon={faTrash} className=' 0'/>
-                </button>
-            </div>
-            <div className="flex flex-row h-10 w-full rounded-lg  bg-transparent mt-1">
+                 <div className="flex flex-row h-10 w-10/12  lg:w-8/12 rounded-lg  bg-transparent ">
                     <button 
                         className="bg-[#0D7377] hover:bg-[#408b8e] transition-all duration-300 h-full w-20 rounded-l cursor-pointer outline-none"
-                        // onClick={() => {
-                        //       if (cantidad < 1) return;
-                        //       setCantidad(cantidad - 1);
-                        //     }}
+                        onClick={handleDecrement}
                     >
                         <span className="m-auto text-base font-thin">
                             <FontAwesomeIcon icon={faMinus} />
                         </span>
                     </button>
-                    <label className="focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center justify-center text-gray-700  outline-none">40</label>
+                    <label className="focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center justify-center text-gray-700  outline-none">{amount}</label>
                     <button 
                         className="bg-[#0D7377] hover:bg-[#408b8e] transition-all duration-300 h-full w-20 rounded-r cursor-pointer"
-                        // onClick={() => setCantidad(cantidad+1)}
+                        onClick={handleIncrement}
                     >
                         <span className="m-auto text-base font-thin">
                             <FontAwesomeIcon icon={faPlus} />
@@ -57,6 +81,13 @@ const CardProductSale = ({product}) => {
                     </button>
                 </div>
 
+                <button
+                    onClick={() => handleClickDelete(product.id)} 
+                    className='border border-red-500 w-1/12 lg:w-2/12 h-10 rounded-lg mx-0.5 text-red-500 hover:text-white hover:bg-red-500 transition duration-300 '>
+                    <FontAwesomeIcon icon={faTrash} className=' 0'/>
+                </button>
+            </div>
+        
             
         </div>
   )

@@ -28,7 +28,7 @@ import { NavLink,  useLocation, useRoutes } from "react-router-dom";
 import ContentAside from "../../components/ContentAside/ContentAside";
 import useApp from "../../hooks/useApp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faCoffee, faDollar, faDollarSign, faGear, faHome, faMoneyBill, faMoneyCheck, faNoteSticky } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faClipboardList, faCoffee, faDollar, faDollarSign, faGear, faHome, faMoneyBill, faMoneyCheck, faNoteSticky } from "@fortawesome/free-solid-svg-icons";
 
 const style = {
   position: 'absolute' ,
@@ -51,6 +51,7 @@ const Sidebar = () => {
 } = useApp();
 
   let isTabletMid = useMediaQuery({ query: "(max-width: 760px)" });
+  // const isScreenMid = use
   const [open, setOpen] = useState(isTabletMid ? false : true);
   
   const sidebarRef = useRef();
@@ -153,6 +154,14 @@ const Sidebar = () => {
                 <FontAwesomeIcon icon={faGear} width={20}/>
                 <p>Settings</p>
               </NavLink>
+            </li>
+            <li className=" hidden md:block lg:hidden ">
+              <button 
+                onClick={() => setOpenModal(!openModal)}
+                className="link">
+                <FontAwesomeIcon icon={faClipboardList} width={20}/>
+                <p>Order</p>
+              </button>
             </li>
           </ul>
 
