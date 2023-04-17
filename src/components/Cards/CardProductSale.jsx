@@ -2,6 +2,7 @@ import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react'
 import useApp from '../../hooks/useApp';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CardProductSale = ({product}) => {
     
@@ -19,7 +20,7 @@ const CardProductSale = ({product}) => {
           if (p.id === product.id) {
             return {
               ...p,
-              amount: Math.max(0, p.amount - 1) // Asegurarse de que no haya cantidades negativas
+              amount: Math.max(1, p.amount - 1) // Asegurarse de que no haya cantidades negativas
             };
           }
           return p;
@@ -42,12 +43,14 @@ const CardProductSale = ({product}) => {
 
 
         const handleClickDelete = (id) => {
+            toast.error('Product Deleted',{
+                duration: 1000,
+            });
             deleteProductOrder(id);
         }
     
   return (
         <div className="bg-[#525252] py-5 px-0 lg:px-5 rounded-xl flex flex-col items-center gap-2 my-5 text-center text-gray-300">
-
             <div className='flex items-center mb-3 justify-between w-full'>
                 <div className=''>
                     <img

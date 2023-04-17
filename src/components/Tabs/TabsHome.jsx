@@ -105,7 +105,7 @@ const TabsHome = ({TabsInHome}) => {
                         <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
-                                    {coffe.map(product => (
+                                    {[...coffe].reverse().map(product => (
                                         <CardProduct 
                                             key={product.id}
                                             product={product}
@@ -123,7 +123,7 @@ const TabsHome = ({TabsInHome}) => {
                         <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
-                                    {donuts.map(product => (
+                                    {[...donuts].reverse().map(product => (
                                         <CardProduct 
                                             key={product.id}
                                             product={product}
@@ -141,7 +141,7 @@ const TabsHome = ({TabsInHome}) => {
                         <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
-                                    {biscuits.map(product => (
+                                    {[...biscuits].reverse().map(product => (
                                         <CardProduct 
                                             key={product.id}
                                             product={product}
@@ -159,7 +159,7 @@ const TabsHome = ({TabsInHome}) => {
                         <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
-                                    {burgers.map(product => (
+                                    {[...burgers].reverse().map(product => (
                                         <CardProduct 
                                             key={product.id}
                                             product={product}
@@ -177,7 +177,7 @@ const TabsHome = ({TabsInHome}) => {
                         <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
-                                    {cakes.map(product => (
+                                    {[...cakes].reverse().map(product => (
                                         <CardProduct 
                                             key={product.id}
                                             product={product}
@@ -195,7 +195,7 @@ const TabsHome = ({TabsInHome}) => {
                         <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
-                                    {pizzas.map(product => (
+                                    {[...pizzas].reverse().map(product => (
                                         <CardProduct 
                                             key={product.id}
                                             product={product}

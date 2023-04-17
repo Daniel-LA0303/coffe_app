@@ -1,9 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { v4 as uuidv4 } from "uuid";
+import useApp from '../hooks/useApp';
+import { useNavigate } from 'react-router-dom';
+import { Toaster, toast } from 'react-hot-toast';
 
 const NewProduct = () => {
+    
+    const route = useNavigate()
+
+    const {
+        createProduct
+    } = useApp();
+
+    const [nombre, setNombre] = useState("")
+    const [precio, setPrecio] = useState(0)
+    const [categoriaId, setCategoriaId] = useState("")
+
+    const handleClick = () => {
+        const ob = {
+            id: uuidv4(),
+            nombre,
+            precio,
+            categoriaId,
+            imagen: "galletas_04"
+        }
+        createProduct(ob)
+        toast.success('Product Add',{
+            duration: 700,
+        });
+        setTimeout(() => {
+            route('/')
+        }, 1000);
+        
+    }
   return (
     <div className=' w-10/12 sm:w-6/12 mx-auto my-8'>
-
+        <Toaster 
+          position="top-right"
+          reverseOrder={false}
+        />
         <form className='p-4 bg-[#313131] text-white'>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="name">
@@ -16,7 +51,7 @@ const NewProduct = () => {
                     type="text"
                     placeholder="Ingrese el nombre del producto"
                     // value={formData.name}
-                    // onChange={handleInputChange}
+                    onChange={(e) => setNombre(e.target.value)}
                 />
             </div>
             <div className="mb-4">
@@ -30,7 +65,7 @@ const NewProduct = () => {
                 type="number"
                 placeholder="Ingrese el precio del producto"
                 // value={formData.price}
-                // onChange={handleInputChange}
+                onChange={(e) => setPrecio(e.target.value)}
                 />
             </div>
             <div className="mb-4">
@@ -42,12 +77,15 @@ const NewProduct = () => {
                     id="category"
                     name="category"
                     // value={formData.category}
-                    // onChange={handleInputChange}
+                    onChange={(e) => setCategoriaId(e.target.value)}
                 >
                     <option value="">Seleccione una categoría</option>
-                    <option value="cafe">Café</option>
-                    <option value="postre">Postre</option>
-                    <option value="comida">Comida</option>
+                    <option value="cafe">Coffe</option>
+                    <option value="donas">Donuts</option>
+                    <option value="galletas">Biscuits</option>
+                    <option value="hamburguesas">Burgers</option>
+                    <option value="pasteles">Cakes</option>
+                    <option value="pizzas">Pizzas</option>
                 </select>
             </div>
             <div className="mb-4">
@@ -65,7 +103,8 @@ const NewProduct = () => {
             <div className="flex items-center justify-center">
                 <button
                     className='bg-[#0D7377] w-full h-10 rounded-lg hover:bg-[#408b8e] transition duration-300 '
-                    type="submit"
+                    type="button"
+                    onClick={() => handleClick()}
                 >Add</button>
             </div>
         </form>

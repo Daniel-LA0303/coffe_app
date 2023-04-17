@@ -1,5 +1,6 @@
 import React from 'react'
 import useApp from '../../hooks/useApp';
+import toast, { Toaster } from 'react-hot-toast';
 // import logo from '../../assets/img/'
 
 const CardProduct = ({product}) => {
@@ -16,12 +17,14 @@ const CardProduct = ({product}) => {
 
     const handleClick = () => {
       // setProductsOrder([...productsOrder, product])
+      toast.success('Product Added',{
+        duration: 1000,
+      });
       addProductOrder(product)
     }
 
   return (
     <div className="bg-[#313131] p-8 rounded-xl flex flex-col items-center gap-2 mt-12 mb-10 text-center text-gray-300">
-
         <img
             src={imagePath}
             className="w-full block object-cover -mt-20 shadow-2xl rounded-full"

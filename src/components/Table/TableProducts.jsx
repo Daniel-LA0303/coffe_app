@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import useApp from '../../hooks/useApp';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 
 const TableProducts = ({data}) => {
 
@@ -21,6 +23,24 @@ const TableProducts = ({data}) => {
     setTimeout(() => {
       route(`/edit-product/${id}`)
     }, 500);
+  }
+
+  const deletePro = (id) => {
+    Swal.fire({
+      title: 'Are you sure you want to remove this Product?',
+      text: "Deleted products cannot be recovered",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Delete',
+      cancelButtonText: 'No, Cancel'
+    }).then((result) => {
+      if (result.value) {
+          //consulta a la api
+          deleteProduct(id)          
+      }
+    })
   }
 
 
@@ -44,12 +64,12 @@ const TableProducts = ({data}) => {
         </TableHead>
         <TableBody>
           {
-            data.map(row => (
+            [...data].reverse().map(row => (
               <TableRow 
                 key={row.id}
                 sx={{':last-child td, &:last-child th': {border: 0}}}
               >
-                <TableCell sx={{ color: 'white' }} >{row.id}</TableCell>
+                <TableCell sx={{ color: 'white' }} >{row.id.substring(0, 6)}</TableCell>
                 <TableCell sx={{ color: 'white' }}>{row.nombre}</TableCell>
                 <TableCell sx={{ color: 'white' }}>{row.precio}</TableCell>
                 <TableCell sx={{ color: 'white' }}>{row.categoriaId}</TableCell>
@@ -63,7 +83,7 @@ const TableProducts = ({data}) => {
                 <TableCell>
                   <div className='flex justify-between'>
                     <button 
-                      onClick={() => deleteProduct(row.id)}
+                      onClick={() => deletePro(row.id)}
                       className='border border-red-500 w-7 h-7 rounded-lg mx-0.5 text-red-500 hover:text-white hover:bg-red-500 transition duration-300'>
                       <FontAwesomeIcon icon={faTrash} />
                     </button>

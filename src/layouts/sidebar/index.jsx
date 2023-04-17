@@ -41,6 +41,7 @@ const style = {
   pt: 2,
   px: 4,
   pb: 3,
+  borderRadius: '15px'
 };
 
 const Sidebar = () => {
@@ -203,6 +204,7 @@ const Sidebar = () => {
         </div>
       </div>
       <Modal
+        
         open={openModal}
         onClose={() => setOpenModal(false)}
         aria-labelledby="child-modal-title"

@@ -52,27 +52,26 @@ const AppProvider = ({children}) => {
         setPizzas(products.filter(producto => producto.categoriaId === "pizzas"));
       }, [products]);
 
-      const deleteProductOrder = (id) => {
+    const deleteProductOrder = (id) => {
         const newProductsOrder = productsOrder.filter( ped => ped.id !== id );
         setProductsOrder(newProductsOrder)
     }
 
-      useEffect(() => {
+
+
+    useEffect(() => {
         const newTotalOrder = productsOrder.reduce((total, product) => {
           return total + (product.amount * product.precio);
         }, 0);
         setTotalOrder(newTotalOrder);
-      }, [productsOrder, deleteProductOrder]);
+    }, [productsOrder, deleteProductOrder]);
 
-      useEffect(() => {
+    useEffect(() => {
         const newTotal = orders.reduce((total, order) => {
             return total + order.totalOrder
         }, 0);
         setTotal(newTotal)
-      }, [orders])
-      
-
-    // console.log(pizzas);
+    }, [orders])
 
     //functions
     const addProductOrder = (newProductAdd) => {
@@ -110,13 +109,22 @@ const AppProvider = ({children}) => {
         setOrders(newOrder)
     }
 
-    const deleteProduct = (id) => {
-        // console.log(id);
-        // const newProducts = products.filter(pro => pro.id !== id)
-        const newProducts = products.filter(pro => pro.id.toString() !== id.toString());
+    const createProduct = (product) => {
 
-        // console.log(newProducts);
+        setProdutcs([...products, product])
+        // console.log(product);
+    }
+
+    const deleteProduct = (id) => {
+        const newProducts = products.filter(pro => pro.id.toString() !== id.toString());
         setProdutcs(newProducts)
+    }
+
+    const editProduct = (product) => {
+        const productsUpdate = products.map(pro => pro.id === product.id ? product : pro);
+        setProdutcs(productsUpdate)
+        setProduct({}) 
+        console.log(product);
     }
 
 
@@ -153,7 +161,9 @@ const AppProvider = ({children}) => {
                 deleteProductOrder,
                 newOrder,
                 deleteOrder, 
-                deleteProduct
+                createProduct,
+                deleteProduct,
+                editProduct
             }}
         >
             {children}

@@ -3,6 +3,7 @@ import CardProductSale from "../components/Cards/CardProductSale";
 import useApp from "../hooks/useApp";
 import TabsHome from "../components/Tabs/TabsHome";
 import ContentAside from '../components/ContentAside/ContentAside';
+import { Toaster } from 'react-hot-toast';
 
 
 
@@ -15,6 +16,10 @@ const Home = () => {
 
   return (
     <div className="flex text-white">
+        <Toaster 
+          position="top-right"
+          reverseOrder={false}
+        />
       <div className=" w-full lg:w-9/12 xl:w-9/12 h-auto md:h-screen md:overflow-y-auto contenedor">
         <TabsHome TabsInHome={true}/>
       </div>
