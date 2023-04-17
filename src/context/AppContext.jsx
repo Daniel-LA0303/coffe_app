@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { fakeData } from "../helpers/fakeData";
+import background from "../assets/background.jpg"
 
 
 
@@ -32,6 +33,8 @@ const AppProvider = ({children}) => {
 
     //state total global
     const [total, setTotal] = useState(0)
+
+    const path = background
 
     // const
 
@@ -163,7 +166,8 @@ const AppProvider = ({children}) => {
                 deleteOrder, 
                 createProduct,
                 deleteProduct,
-                editProduct
+                editProduct,
+                path
             }}
         >
             {children}

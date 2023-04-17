@@ -102,7 +102,7 @@ const TabsHome = ({TabsInHome}) => {
             <TabContext value={activeTab}>
                 <TabPanel value="1">
                     <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
-                        <div className={`${TabsInHome ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
+                        <div className={`${TabsInHome ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
                                     {[...coffe].reverse().map(product => (

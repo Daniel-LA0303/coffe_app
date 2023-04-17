@@ -31,15 +31,15 @@ const ContentAside = ({aside}) => {
           <p className='top-20 absolute text-white'>There are no products yet</p>
         ) : (
             <>
-              <div className={`${aside ? ' h-5/6' : 'h-full'} contenedor  mt-5 overflow-y-auto`}>
-                {productsOrder.map(product => (
+              <div className={`${aside ? ' h-4/6' : 'h-full'} contenedor  mt-5 overflow-y-auto`}>
+                {[...productsOrder].reverse().map(product => (
                     <CardProductSale 
                       key={product.id}
                       product={product}
                     />
                   ))}
               </div>
-              <div className={`${aside && 'bg-[#313131]'} h-1/6 mt-1 w-full text-white`}>
+              <div className={`h-1/6 mt-1 w-full text-white`}>
                 <h3 className="my-1">Total: ${totalOrder.toFixed(2)}</h3>
                 <div className='mb-1'>
                           <input 

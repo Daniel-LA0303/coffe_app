@@ -57,7 +57,7 @@ const EditProduct = () => {
     }
     
   return (
-    <div className=' w-10/12 sm:w-6/12 mx-auto my-8'>
+    <div className=' w-10/12 sm:w-6/12 md:w-6/12 lg:w-4/12 mx-auto my-8'>
         <Toaster 
           position="top-right"
           reverseOrder={false}
@@ -65,7 +65,7 @@ const EditProduct = () => {
 
         <form 
             // onSubmit={handleSubmit}
-            className='p-4 bg-[#313131] text-white'>
+            className='p-10 bg-[#313131] text-white'>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="name">
                     Nombre

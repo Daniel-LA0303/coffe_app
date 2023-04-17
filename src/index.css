@@ -5,11 +5,21 @@
 /* -webkit-text-size-adjust: none; */
 
 @layer base {
-  html {
-    /* @apply font-Montserrat; */
-  }
   body {
     background: #525252;
+    background-image: url('./assets/background-md.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    /* background-size: contain; */
+    /* background-position: center; */
+  }
+  @media (max-width: 768px) {
+    body {
+      /* background-image: url('./assets/background-sm.jpg');
+      background-size: contain; */
+      /* background-position: center center; */
+    }
   }
   /* @media (max-width: 768px) {
     body::-webkit-scrollbar {
