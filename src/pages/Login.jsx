@@ -1,36 +1,56 @@
-import { Toaster } from "react-hot-toast";
-import useApp from "../hooks/useApp";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import useApp from '../hooks/useApp';
+import iconCoffe from "../assets/icon2.png"
+import { useNavigate } from 'react-router-dom';
+import userIcon from "../assets/user.png"
 
-
-const Settings = () => {
+const Login = () => {
 
     const route = useNavigate()
 
-  const {
-    user
-} = useApp();  
+    const {
+        login,
+        setUser
+    } = useApp();
 
-  const [name, setName] = useState("")
-  const [password, setPassword] = useState("")
+    const [name, setName] = useState("")
+    const [password, setPassword] = useState("")
 
+    const handleClick = () => {
 
-  useEffect(() => {
-    if(!user.name){
-        route('/login')
+        const ob = {
+            name,
+            password
+        }
+        if(name === "user" && password === "1234"){
+            setUser({
+                name,
+                password,
+                img: userIcon
+            })
+        }
+        route('/')
+        // login(ob)
     }
-    setName(user.name)
-    setPassword(user.password)
-  }, [])
 
   return (
-    <div className=' w-10/12 sm:w-6/12 md:w-6/12 lg:w-4/12 mx-auto my-8'>
-        <Toaster 
+    <div className=' h-screen mx-auto flex justify-center items-center'>
+        {/* <Toaster 
           position="top-right"
           reverseOrder={false}
-        />
-        <form className='p-10 bg-[#313131] text-white rounded-md'>
+        /> */}
+        <form className='p-10 bg-[#313131] text-white rounded-md w-10/12 sm:w-6/12 md:w-6/12 lg:w-4/12'>
+        <div className="mb-4">
+                <label className="block font-light text-5xl mb-2 text-center" htmlFor="image">
+                    Coffe Food
+                </label>
+                <div className='flex justify-center'>
+                    <img
+                        src={iconCoffe}
+                        className=" w-40  lg:text-xs xl:text-xl mt-0 shadow-2xl rounded-lg"
+                    />
+                </div>
+            </div>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="name">
                     Name
@@ -59,28 +79,16 @@ const Settings = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
-            <div className="mb-4">
-                <label className="block font-bold mb-2" htmlFor="image">
-                    Image
-                </label>
-                <div className='flex justify-center'>
-                    <img
-                        src={user.img}
-                        className=" w-40  lg:text-xs xl:text-xl mt-0 shadow-2xl rounded-lg"
-                    />
-                </div>
-            </div>
             <div className="flex items-center justify-center">
                 <button
                     className='bg-[#0D7377] w-full h-10 rounded-lg hover:bg-[#408b8e] transition duration-300 '
                     type="button"
                     onClick={() => handleClick()}
-                >Edit</button>
+                >Login</button>
             </div>
         </form>
     </div>
+  )
+}
 
-  );
-};
-
-export default Settings;
+export default Login

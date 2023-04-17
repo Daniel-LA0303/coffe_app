@@ -3,12 +3,15 @@ import { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { fakeData } from "../helpers/fakeData";
 import background from "../assets/background.jpg"
+import userIcon from "../assets/user.png"
 
 
 
 const AppContext = createContext();
 
 const AppProvider = ({children}) => {
+
+    const [user, setUser] = useState({})
 
     //state products
     const [products, setProdutcs] = useState([]);
@@ -130,6 +133,16 @@ const AppProvider = ({children}) => {
         console.log(product);
     }
 
+    const login = (user) => {
+        // if(user.name === "user" && user.password === "1234"){
+        //     setUser({
+        //         user :user.name,
+        //         password :user.password,
+        //         img: userIcon
+        //     })
+        // }
+    }
+
 
 
     return(
@@ -167,7 +180,12 @@ const AppProvider = ({children}) => {
                 createProduct,
                 deleteProduct,
                 editProduct,
-                path
+                path,
+
+                //
+                user,
+                setUser,
+                login
             }}
         >
             {children}

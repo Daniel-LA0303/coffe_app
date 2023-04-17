@@ -1,10 +1,11 @@
+import { Outlet } from "react-router-dom";
 import Sidebar from "./sidebar";
 
-function RootLayout({ children }) {
+function RootLayout() {
   return (
     <div className="flex flex-col md:flex-row w-full">
       <Sidebar />
-      <main className=" flex-1">{children}</main>
+      <Outlet />
     </div>
   );
 }

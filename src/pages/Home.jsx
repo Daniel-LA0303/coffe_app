@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CardProductSale from "../components/Cards/CardProductSale";
 import useApp from "../hooks/useApp";
 import TabsHome from "../components/Tabs/TabsHome";
 import ContentAside from '../components/ContentAside/ContentAside';
 import { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Home = () => {
+  const route = useNavigate()
 
   const {
-    path
+    path,
+    user
+    // const [state, dispatch] = useReducer(first, second, third)
 } = useApp();
 
   // const {coffe} = useApp();
+
+  useEffect(() => {
+    if(!user.name){
+      route('/login')
+    }
+  }, [])
+  
 
 
   // console.log(produtcs);

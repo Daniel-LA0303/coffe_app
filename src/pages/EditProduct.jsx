@@ -6,7 +6,10 @@ import { Toaster, toast } from 'react-hot-toast';
 
 const EditProduct = () => {
     const {
-        editProduct
+        product,
+        products,
+        editProduct,
+        user
     } = useApp();
 
     const params = useParams()
@@ -21,10 +24,12 @@ const EditProduct = () => {
     const imagePath = `../img/${imagen}.jpg`;
     let productFind
     
-    const {
-        product,
-        products
-    } = useApp();
+    useEffect(() => {
+        if(!user.name){
+          route('/login')
+        }
+      }, [])
+      
 
     useEffect(() => {
         setTimeout(() => {
@@ -65,10 +70,10 @@ const EditProduct = () => {
 
         <form 
             // onSubmit={handleSubmit}
-            className='p-10 bg-[#313131] text-white'>
+            className='p-10 bg-[#313131] text-white rounded-md'>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="name">
-                    Nombre
+                    Name
                 </label>
                 <input
                     className="shadow bg-[#525252] appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -83,7 +88,7 @@ const EditProduct = () => {
             </div>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="price">
-                    Precio
+                    Price
                 </label>
                 <input
                 className="shadow bg-[#525252] appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -98,7 +103,7 @@ const EditProduct = () => {
             </div>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="category">
-                    Categoría
+                    Category
                 </label>
                 <select
                     className="shadow bg-[#525252] appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -119,7 +124,7 @@ const EditProduct = () => {
             </div>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="image">
-                    Imagen
+                    Image
                 </label>
                 <div className='flex justify-center'>
                     <img

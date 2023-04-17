@@ -14,21 +14,13 @@ import Modal from '@mui/material/Modal';
 
 // * React icons
 import { IoIosArrowBack } from "react-icons/io";
-import { SlSettings } from "react-icons/sl";
-import { AiOutlineAppstore, AiOutlineDollar } from "react-icons/ai";
-import { BsPerson } from "react-icons/bs";
-import { HiOutlineDatabase } from "react-icons/hi";
-import { FiCoffee } from "react-icons/fi";
-import { TbReportAnalytics } from "react-icons/tb";
-import { RiBuilding3Line } from "react-icons/ri";
-import {GrNotification} from 'react-icons/gr'
 import { useMediaQuery } from "react-responsive";
 import { MdMenu } from "react-icons/md";
-import { NavLink,  useLocation, useRoutes } from "react-router-dom";
+import { NavLink,  useLocation, useNavigate, useRoutes } from "react-router-dom";
 import ContentAside from "../../components/ContentAside/ContentAside";
 import useApp from "../../hooks/useApp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faClipboardList, faCoffee, faDollar, faDollarSign, faGear, faHome, faMoneyBill, faMoneyCheck, faNoteSticky, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faClipboardList, faCoffee, faGear, faHome, faMoneyBill, faMoneyCheck, faNoteSticky, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 const style = {
   position: 'absolute' ,
@@ -46,10 +38,14 @@ const style = {
 
 const Sidebar = () => {
 
+  const route = useNavigate()
+
   const {
     openModal,
     setOpenModal,
-    productsOrder
+    productsOrder,
+    user,
+    setUser
 } = useApp();
 
   let isTabletMid = useMediaQuery({ query: "(max-width: 760px)" });
@@ -104,6 +100,10 @@ const Sidebar = () => {
         },
       };
 
+      const handleLogOut = () => {
+        setUser({})
+        route('/login')
+      }
 
   return (
     <div>
@@ -133,6 +133,18 @@ const Sidebar = () => {
 
         <div className="flex flex-col  h-full">
           <ul className="whitespace-pre px-2.5 text-[0.9rem] py-5 flex flex-col gap-1  font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100   md:h-[68%] h-[70%]">
+            <li>
+              <p className="text-white bg-[#525252] p-2 flex rounded-md gap-6 items-center md:cursor-pointer cursor-default duration-300 font-medium" >
+              {/* <div className='flex justify-center'> */}
+                    <img
+                        src={user.img}
+
+                        className=" w-6 shadow-2xl rounded-lg"
+                    />
+                {/* </div> */}
+                <p>{user.name}</p>
+              </p>
+            </li>
             <li>
               <NavLink to={"/"} className="link" >
                 <FontAwesomeIcon icon={faHome} width={20}/>
@@ -167,7 +179,7 @@ const Sidebar = () => {
             </li>
             <li className=" ">
               <button 
-                // onClick={() => setOpenModal(!openModal)}
+                onClick={() => handleLogOut()}
                 className="link">
                 <FontAwesomeIcon icon={faSignInAlt} width={20}/>
                 <p>Log out</p>

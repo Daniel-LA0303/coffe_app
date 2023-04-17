@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from "uuid";
 import useApp from '../hooks/useApp';
 import { useNavigate } from 'react-router-dom';
@@ -9,12 +9,19 @@ const NewProduct = () => {
     const route = useNavigate()
 
     const {
-        createProduct
+        createProduct,
+        user
     } = useApp();
 
     const [nombre, setNombre] = useState("")
     const [precio, setPrecio] = useState(0)
     const [categoriaId, setCategoriaId] = useState("")
+
+    useEffect(() => {
+        if(!user.name){
+          route('/login')
+        }
+      }, [])
 
     const handleClick = () => {
         const ob = {
@@ -42,7 +49,7 @@ const NewProduct = () => {
         <form className='p-10 bg-[#313131] text-white rounded-md'>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="name">
-                    Nombre
+                    Name
                 </label>
                 <input
                     className="shadow bg-[#525252] appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -56,7 +63,7 @@ const NewProduct = () => {
             </div>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="price">
-                    Precio
+                    Price
                 </label>
                 <input
                 className="shadow bg-[#525252] appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -70,7 +77,7 @@ const NewProduct = () => {
             </div>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="category">
-                    Categoría
+                    Category
                 </label>
                 <select
                     className="shadow bg-[#525252] appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -90,7 +97,7 @@ const NewProduct = () => {
             </div>
             <div className="mb-4">
                 <label className="block font-bold mb-2" htmlFor="image">
-                    Imagen
+                    Image
                 </label>
                 <input
                     className="shadow bg-[#525252] appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
