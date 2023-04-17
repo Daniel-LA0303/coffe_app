@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import Logo from "../../assets/icon2.png"
 
-import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from "@mui/material";
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Badge } from "@mui/material";
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 // import Button from '@mui/material/Button';
@@ -48,7 +48,8 @@ const Sidebar = () => {
 
   const {
     openModal,
-    setOpenModal
+    setOpenModal,
+    productsOrder
 } = useApp();
 
   let isTabletMid = useMediaQuery({ query: "(max-width: 760px)" });
@@ -200,7 +201,17 @@ const Sidebar = () => {
 
           className="text-white cursor-pointer"
         >
-          <FontAwesomeIcon icon={faBell}/>
+          <Badge 
+            badgeContent={productsOrder.length} 
+            sx={{
+              "& .MuiBadge-badge": {
+                color: "white",
+                backgroundColor: "#0D7377"
+              }
+              }}
+          >
+            <FontAwesomeIcon icon={faBell}/>
+          </Badge>
         </div>
       </div>
       <Modal
@@ -210,7 +221,7 @@ const Sidebar = () => {
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       >
-        <Box sx={{ ...style, width: 400, height: '70vh' }}>
+        <Box sx={{ ...style, width: 400, height: '80vh' }}>
           <div className=" h-4/6">
             <ContentAside 
               aside={false}

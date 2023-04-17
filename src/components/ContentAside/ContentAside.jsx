@@ -25,13 +25,13 @@ const ContentAside = ({aside}) => {
     }
 
   return (
-    <>
+    <div className=' h-full'>
         <h1 className=' text-white'>New Order</h1>
         {productsOrder.length == 0 ? (
           <p className='top-20 absolute text-white'>There are no products yet</p>
         ) : (
             <>
-              <div className={`${aside ? ' h-4/6' : 'h-full'} contenedor  mt-5 overflow-y-auto`}>
+              <div className={`${aside ? ' h-5/6' : 'h-full'} contenedor  mt-5 overflow-y-auto`}>
                 {productsOrder.map(product => (
                     <CardProductSale 
                       key={product.id}
@@ -56,7 +56,7 @@ const ContentAside = ({aside}) => {
             </>
         )}
         
-    </>
+    </div>
   )
 }
 

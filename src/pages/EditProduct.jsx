@@ -34,14 +34,11 @@ const EditProduct = () => {
             setNombre(productFind.nombre)
             setPrecio(productFind.precio)
             setImg(productFind.imagen)
-            console.log(productFind);
         }, 500);
 
     }, [params, products])
     
     const handleClick = () => {
-        // console.log(productFind.id)
-        // console.log(id, nombre, precio, categoriaId, imagen);
         const ob = {
             nombre,
             precio, 
