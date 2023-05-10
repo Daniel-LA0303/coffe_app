@@ -86,7 +86,7 @@ const TabsHome = ({TabsInHome}) => {
             </TabContext>
           </aside>
           <div className="w-full ml-auto flex-2 ">
-            <div className='flex justify-between items-center m-5'>
+            <div className='flex justify-between items-center mx-5 mt-10'>
                 <h1 className=" ">{TabsInHome ? 'Products' : 'All Products'}</h1>
                 {!TabsInHome && (
                     <div>
@@ -101,7 +101,7 @@ const TabsHome = ({TabsInHome}) => {
             
             <TabContext value={activeTab}>
                 <TabPanel value="1">
-                    <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
+                    <div className=" w-full h-auto md:h-[85vh] md:overflow-y-auto contenedor  ">
                         <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
@@ -119,7 +119,7 @@ const TabsHome = ({TabsInHome}) => {
                     </div>
                 </TabPanel>
                 <TabPanel value="2">
-                    <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
+                    <div className=" w-full h-auto md:h-[85vh] md:overflow-y-auto contenedor  ">
                         <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
@@ -137,7 +137,7 @@ const TabsHome = ({TabsInHome}) => {
                     </div>
                 </TabPanel>
                 <TabPanel value="3">
-                    <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
+                    <div className=" w-full h-auto md:h-[85vh] md:overflow-y-auto contenedor  ">
                         <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
@@ -155,7 +155,7 @@ const TabsHome = ({TabsInHome}) => {
                     </div>
                 </TabPanel>
                 <TabPanel value="4">
-                    <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
+                    <div className=" w-full h-auto md:h-[85vh] md:overflow-y-auto contenedor  ">
                         <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
@@ -173,7 +173,7 @@ const TabsHome = ({TabsInHome}) => {
                     </div>
                 </TabPanel>
                 <TabPanel value="5">
-                    <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
+                    <div className=" w-full h-auto md:h-[85vh] md:overflow-y-auto contenedor  ">
                         <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>
@@ -191,7 +191,7 @@ const TabsHome = ({TabsInHome}) => {
                     </div>
                 </TabPanel>              
                 <TabPanel value="6">
-                    <div className=" w-full h-auto md:h-[94vh] md:overflow-y-auto contenedor  ">
+                    <div className=" w-full h-auto md:h-[85vh] md:overflow-y-auto contenedor  ">
                         <div className={`${TabsInHome ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : ' grid-cols-1'} grid  gap-4`}>
                             {TabsInHome ? (
                                 <>

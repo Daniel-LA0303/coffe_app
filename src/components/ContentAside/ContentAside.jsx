@@ -2,8 +2,14 @@ import React from 'react'
 import CardProductSale from '../Cards/CardProductSale'
 import useApp from '../../hooks/useApp';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { useMediaQuery } from '@mui/material';
+import { useEffect } from 'react';
 
 const ContentAside = ({aside}) => {
+
+  const isSmallScreen = useMediaQuery('(max-width:768px)');
 
     const {
         productsOrder,
@@ -26,6 +32,16 @@ const ContentAside = ({aside}) => {
 
   return (
     <div className=' h-full'>
+
+        {isSmallScreen && (
+          <div 
+            className=' absolute top-0 right-5 text-white text-2xl'
+            onClick={() => handleClick()}
+          >
+            <FontAwesomeIcon icon={faClose} />
+          </div>
+        )}
+
         <h1 className=' text-white'>New Order</h1>
         {productsOrder.length == 0 ? (
           <p className='top-20 absolute text-white'>There are no products yet</p>

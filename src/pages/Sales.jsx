@@ -20,12 +20,10 @@ const Sales = () => {
   }, [])
 
   return (
-    <div className=" mx-auto text-white w-10/12 md:w-9/12">
-      <div className=" w-full h-auto md:h-screen md:overflow-y-auto contenedor">
-        <h2 className=" text-center my-3 text-2xl">Today's sales: ${total.toFixed(2)}</h2>
-        <div className="py-10">
+    <div className="px-3 sm:mx-auto w-full lg:w-9/12 xl:w-9/12 h-auto md:h-screen  ">
+      <h2 className=" text-center text-white my-3 text-2xl mt-5">Today's sales: ${total.toFixed(2)}</h2>
+      <div className=" w-full h-auto md:h-[85vh]  md:overflow-y-auto contenedor  ">
         <TableSales />
-        </div>
       </div>
     </div>
   );
