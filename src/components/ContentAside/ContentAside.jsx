@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 const ContentAside = ({aside}) => {
 
-  const isSmallScreen = useMediaQuery('(max-width:768px)');
+  const isSmallScreen = useMediaQuery('(max-width:1024px)');
 
     const {
         productsOrder,
@@ -35,7 +35,7 @@ const ContentAside = ({aside}) => {
 
         {isSmallScreen && (
           <div 
-            className=' absolute top-0 right-5 text-white text-2xl'
+            className=' absolute top-[0.3rem] right-[1.2rem] text-white text-2xl'
             onClick={() => handleClick()}
           >
             <FontAwesomeIcon icon={faClose} />
